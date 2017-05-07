@@ -93,8 +93,12 @@ int main(void) {
                 break;
 	case QUIT:
 	        printf("Goodbye\n");
-                delete_list(head);
-	        exit(EXIT_SUCCESS);
+		if (head == NULL)
+			exit(EXIT_SUCCESS);
+		else {
+                	delete_list(head);
+	        	exit(EXIT_SUCCESS);
+		}
 		break;
 	default:
 		printf("Invalid input\n\n");
