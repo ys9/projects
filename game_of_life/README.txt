@@ -3,7 +3,7 @@ To run, use the makefile in terminal - the command 'make' will automatically run
 
 You must have SDL2 installed on your machine for the code to run. use 'sudo apt-get install libsdl2-dev' to install.
 
-Usage: -w[width] -h[height] -e[edge] -r[red] -g[green] -b[blue] -s[sprite size]-f[filename] -o[origin]
+Usage: -w[width] -h[height] -e[edge] -r[red] -g[green] -b[blue] -s[sprite size] -f[filename] -o[origin]
 OR ./life -H[help] if lost.
 
 for example, ./life -w 800 -h 600 -e torus -r 125 -g 125 -b 255 -s 8 -f ./conwaylife/acorn_106.lif -o 50,50 or
