@@ -11,7 +11,6 @@ width/height in ints, edge should be torus or hedge, defaults to hedge if otherw
 
 Have fun and modify as wanted/needed, just give me a shout out if/when my code is used.
 
-If you're doing this for a school project, please don't copy this code, as I claim no responsibility for any troubles that
-come from MOSS. This is meant as a fun/reference project, so please treat it as such.
+If you're doing this for a school project, please don't copy this code, as I claim no responsibility for any troubles that come from MOSS. This is meant as a fun/reference project, so please treat it as such.
 
 Also, to adjust the speed of the render, find the 'if SDL_GetTicks() %x == 0' line in gl.c; making the % value higher will slow down the render speed, but I like to have it lower as it makes for cooler and faster animations and outputs.
