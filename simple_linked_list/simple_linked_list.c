@@ -3,7 +3,7 @@
  *
  * @date 4/12/17
  *
- * Assignment: Lab 8
+ * Project: Simple Linked List
  *
  * @brief a program that creates and manipulates linked lists and nodes
  *
