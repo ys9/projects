@@ -27,7 +27,6 @@ unsigned char **zero_funct(unsigned char **a, int rows, int cols);
 struct coordinates_t *get_coordinates(struct coordinates_t *coordinate, struct options_t *options);
 struct coordinates_t *insert_head(struct coordinates_t *head, struct coordinates_t *coordinate, int x_init, int y_init);
 struct coordinates_t *create_coordinate(int x_init, int y_init);
-void print_list(struct coordinates_t *head);
 void convert_origin(struct options_t *option);
 int check_color(int color);
 void check_sprite(struct options_t *option);
