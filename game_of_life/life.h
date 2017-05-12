@@ -34,7 +34,6 @@ void string_convert_char(struct options_t *option);
 void plot_first(struct coordinates_t *coordinate, struct options_t *options, unsigned char **a);
 unsigned char **iterate_a(unsigned char **a, unsigned char **b, int rows, int cols, struct options_t *option);
 unsigned char **iterate_b(unsigned char **b, unsigned char **a, int rows, int cols, struct options_t *option);
-int count_neighbors_a(unsigned char **a, int rows, int cols, struct options_t *option, int x, int y);
-int count_neighbors_b(unsigned char **b, int rows, int cols, struct options_t *option, int x, int y);
+int count_neighbors(unsigned char **a, int rows, int cols, struct options_t *option, int x, int y);
 
 #endif
