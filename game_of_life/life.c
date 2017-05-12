@@ -74,7 +74,6 @@ struct coordinates_t *get_coordinates(struct coordinates_t *coordinate, struct o
                 tmp -> next = coordinate;
                 tmp = tmp -> next;
         }
-        //print_list(head);
         int x_node;
         int y_node;
         tmp = head;
@@ -86,7 +85,6 @@ struct coordinates_t *get_coordinates(struct coordinates_t *coordinate, struct o
                 tmp -> y = y_node;
                 tmp = tmp -> next;
         }
-        //print_list(head);
         return head;
 }
 
@@ -117,28 +115,6 @@ struct coordinates_t *create_coordinate(int x_init, int y_init)
         coordinate -> y = y_init;
         coordinate -> next = NULL; //initializes the NULL terminator to the node
         return coordinate;
-}
-
-/**
- * @head is the linked list of coordinates
- */
-void print_list(struct coordinates_t *head)
-{
-        int count = 0;
-        struct coordinates_t *tmp = NULL;
-        tmp = head;
-        while (tmp != NULL) {
-                tmp = tmp -> next;
-                count += 1;
-        } //count of all elems in link list
-        tmp = head;
-        int i = 0, inc = 0; //incrementer in for loop
-        for(; i < count; i++) {
-                printf("Node %d x: %d, y: %d\n", inc, tmp -> x, tmp -> y);
-                tmp = tmp -> next;
-                inc += 1;
-        }
-        printf("\n");
 }
 
 /**
