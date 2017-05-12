@@ -213,7 +213,7 @@ unsigned char **iterate_a(unsigned char **a, unsigned char **b, int rows, int co
         int x, y, count, alive;
         for (x = 0; x < rows; x++) {
                 for (y = 0; y < cols; y++) {
-                        count = count_neighbors_a(a, rows, cols, option, x, y);
+                        count = count_neighbors(a, rows, cols, option, x, y);
                         alive = a[x][y];
                         if (alive == 1) {
                                 if (count == 2 || count == 3)
@@ -245,7 +245,7 @@ unsigned char **iterate_b(unsigned char **b, unsigned char **a, int rows, int co
         int x, y, count, alive;
         for (x = 0; x < rows; x++) {
                 for (y = 0; y < cols; y++) {
-                        count = count_neighbors_b(b, rows, cols, option, x, y);
+                        count = count_neighbors(b, rows, cols, option, x, y);
                         alive = b[x][y];
                         if (alive == 1) {
                                 if (count == 2 || count == 3)
