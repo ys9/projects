@@ -18,7 +18,6 @@ struct options_t {
         char *origin;
         int x_origin;
         int y_origin;
-        char help;
         char *edge;
         char char_edge;
 };
