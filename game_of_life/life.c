@@ -273,7 +273,7 @@ unsigned char **iterate_b(unsigned char **b, unsigned char **a, int rows, int co
  * @param y is the current y index from the iterate() function
  * @returns the count of neighbors
  */
-int count_neighbors_a(unsigned char **a, int rows, int cols, struct options_t *option, int x, int y)
+int count_neighbors(unsigned char **a, int rows, int cols, struct options_t *option, int x, int y)
 {
         int i, j, x_entended, y_extended;
         int count = 0;
@@ -303,49 +303,6 @@ int count_neighbors_a(unsigned char **a, int rows, int cols, struct options_t *o
                 }
         }
         if (!(a[x][y] == 0))
-                count--;
-        return count;
-}
-
-/**
- * @param b is the matrix to use for counting neighbors
- * @param rows is the vertical array
- * @param cols is the horizontal array
- * @param option is the struct that holds the getopt options
- * @param x is the current x index from the iterate() function
- * @param y is the current y index from the iterate() function
- * @returns the count of neighbors
- */
-int count_neighbors_b(unsigned char **b, int rows, int cols, struct options_t *option, int x, int y)
-{
-        int i, j, x_entended, y_extended;
-        int count = 0;
-        for (i = -1; i < 2; i++) {
-                for (j = -1; j < 2; j++) {
-                        if (!(x + i > 0 && y + j > 0 && x + i < (rows - 1) && y + j < (cols - 1))) {
-                                if (option -> char_edge == 'h') {
-                                        ;
-                                }
-
-                                else if (option -> char_edge == 't') {
-                                        y_extended = (y + j + cols) % cols;
-                                        x_entended = (x + i + rows) % rows;
-                                        if (!(b[x_entended][y_extended] == 0))
-                                                count++;
-                                        }
-                                else if (option -> char_edge == 'k') {
-                                                ; //not implemented yet
-                                } else {
-                                        ;
-                                }
-                        }
-                        else {
-                                if (!(b[x + i][y + j] == 0))
-                                        count++;
-                        }
-                }
-        }
-        if (!(b[x][y] == 0))
                 count--;
         return count;
 }
