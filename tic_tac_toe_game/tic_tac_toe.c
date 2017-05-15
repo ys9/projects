@@ -47,6 +47,12 @@ unsigned char **zero_funct(unsigned char **a, int rows, int cols)
         return a;
 }
 
+/**
+ * @param a is the matrix
+ * @param rows are the rows of the matrix
+ * @param cols are the columns of the matrix
+ * @returns the matrix
+ */
 unsigned char **sdl_board_setup(unsigned char **a, int rows, int cols)
 {
         int rows_division = rows / 3;
@@ -63,6 +69,9 @@ unsigned char **sdl_board_setup(unsigned char **a, int rows, int cols)
         return a;
 }
 
+/**
+ * @param game_positions is the struct that holds the three arrays that keep track of player turns
+ */
 void init_struct(struct game_position_t *game_positions)
 {
         int i;
@@ -74,6 +83,13 @@ void init_struct(struct game_position_t *game_positions)
                 game_positions -> total_moves[i] = 0;
 }
 
+/**
+ * @param a is the matrix
+ * @param rows are the rows of the matrix
+ * @param cols are the cols of the matrix
+ * @param game_positions is the struct containing player moves
+ * @returns the matrix
+ */
 unsigned char **player1_move(unsigned char **a, int rows, int cols, struct game_position_t *game_positions)
 {
         int player1_move;
@@ -105,6 +121,14 @@ unsigned char **player1_move(unsigned char **a, int rows, int cols, struct game_
         return a;
 }
 
+/**
+ * @param a is the matrix
+ * @param game_positions is the struct that holds the player moves
+ * @param player1_move is the cell number player 1 entered
+ * @param rows are the rows of the matrix
+ * @param cols are the cols of the matrix
+ * @returns the matrix
+ */
 unsigned char **player1_draw(unsigned char **a, struct game_position_t *game_positions, int player1_move, int rows, int cols)
 {
         int i;
@@ -192,7 +216,13 @@ unsigned char **player1_draw(unsigned char **a, struct game_position_t *game_pos
         return a;
 }
 
-
+/**
+ * @param a is the matrix
+ * @param rows are the rows of the matrix
+ * @param cols are the cols of the matrix
+ * @param game_positions is the struct containing player moves
+ * @returns the matrix
+ */
 unsigned char **player2_move(unsigned char **a, int rows, int cols, struct game_position_t *game_positions)
 {
         int player2_move;
@@ -224,6 +254,14 @@ unsigned char **player2_move(unsigned char **a, int rows, int cols, struct game_
         return a;
 }
 
+/**
+ * @param a is the matrix
+ * @param game_positions is the struct that holds the player moves
+ * @param player2_move is the cell number player 2 entered
+ * @param rows are the rows of the matrix
+ * @param cols are the cols of the matrix
+ * @returns the matrix
+ */
 unsigned char **player2_draw(unsigned char **a, struct game_position_t *game_positions, int player2_move, int rows, int cols)
 {
         int i;
@@ -311,6 +349,11 @@ unsigned char **player2_draw(unsigned char **a, struct game_position_t *game_pos
         return a;
 }
 
+/**
+ * @param game_positions is the struct holding player moves
+ * @param win is a 0 (no win) or 1 (win)
+ * @returns win, a 0 or 1
+ */
 int player1_win_check(struct game_position_t *game_positions, int win)
 {
         if ((game_positions -> player1[0] == 1) && (game_positions -> player1[1] == 1) && (game_positions -> player1[2] == 1)) {
@@ -356,6 +399,12 @@ int player1_win_check(struct game_position_t *game_positions, int win)
         return win;
 }
 
+
+/**
+ * @param game_positions is the struct holding player moves
+ * @param win is a 0 (no win) or 1 (win)
+ * @returns win, a 0 or 1
+ */
 int player2_win_check(struct game_position_t *game_positions, int win)
 {
         if ((game_positions -> player2[0] == 1) && (game_positions -> player2[1] == 1) && (game_positions -> player2[2] == 1)) {
@@ -401,6 +450,11 @@ int player2_win_check(struct game_position_t *game_positions, int win)
         return win;
 }
 
+/**
+ * @param game_positions is the struct that holds player moves
+ * @param cat is a 0 (no tie game) or 1 (tie game)
+ * @param returns cat (0 or 1)
+ */
 int check_cat_game(struct game_position_t *game_positions, int cat)
 {
         int i;
