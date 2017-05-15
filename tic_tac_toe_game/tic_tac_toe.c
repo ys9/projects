@@ -75,11 +75,11 @@ unsigned char **sdl_board_setup(unsigned char **a, int rows, int cols)
 void init_struct(struct game_position_t *game_positions)
 {
         int i;
-        for (i = 0; i < 8; i++)
+        for (i = 0; i < 9; i++)
                 game_positions -> player1[i] = 0;
-        for (i = 0; i < 8; i++)
+        for (i = 0; i < 9; i++)
                 game_positions -> player2[i] = 0;
-        for (i = 0; i < 8; i++)
+        for (i = 0; i < 9; i++)
                 game_positions -> total_moves[i] = 0;
 }
 
