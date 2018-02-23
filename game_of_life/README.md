@@ -9,8 +9,4 @@ for example, ./life -w 800 -h 600 -e torus -r 125 -g 125 -b 255 -s 8 -f ./conway
 
 width/height in ints, edge should be torus or hedge, defaults to hedge if otherwise. RGB settings included, s is the sprite size (2, 4, 8, or 16), defaults to 8 otherwise. -f filename found in the conway_life folder, make sure to have the conway_life folder in the same directory/folder as all the other code, will seg fault otherwise. -o origin is an x,y point entered without spaces or else will seg fault.
 
-Have fun and modify as wanted/needed, just give me a shout out if/when my code is used.
-
-If you're doing this for a school project, please don't copy this code, as I claim no responsibility for any troubles that come from MOSS. This is meant as a fun/reference project, so please treat it as such.
-
 Also, to adjust the speed of the render, find the 'if SDL_GetTicks() %x == 0' line in gl.c; making the % value higher will slow down the render speed, but I like to have it lower as it makes for cooler and faster animations and outputs.
