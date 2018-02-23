@@ -11,5 +11,3 @@ This operation only affects how the product is interpreted, positive or negative
 
 Valid operators are + (addition), - (subtraction), | (or), & (and), and ^ (xor).
 
-Please don't copy this code without a shout-out, and definitely don't copy this code for a 
-school project, as I'm not responsible for MOSS ruining your day.
