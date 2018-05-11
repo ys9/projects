@@ -132,9 +132,9 @@ int checkProfiles(int profileExists, char *uname, char *hostname)
     	if ((strcmp(testUname, uname) == 0) && strcmp(testHostname, hostname) == 0) //if uname and hostname match what is in file
     		profileExists = 1;
     	else {
-    		inputLine = memset(inputLine, 0, 80); //clear memory for reuse in loop
-    		testUname = memset(testUname, 0, 30);
-    		testHostname = memset(testHostname, 0, 50);
+    		inputLine = calloc(80, sizeof(char)); //clear memory for reuse in loop
+    		testUname = calloc(30, sizeof(char));
+    		testHostname = calloc(50, sizeof(char));
     	}
     }
     fclose(fp);
