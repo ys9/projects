@@ -45,6 +45,12 @@ int main(int argc, char *argv[])
 	assert(hostname);
 	char *password = calloc(100, sizeof(char));
 	assert(password);
+	printf(BLUE "    _______          _____ _____ _    _ \n");
+	printf("   |__   __|        / ____/ ____| |  | |\n");
+	printf("      | |_   ___  _| (___| (___ | |__| |\n");
+	printf("      | | | | \\ \\/ /\\___  \\___ \\|  __  |\n");
+	printf("      | | |_| |>  < ____) |___) | |  | |\n");
+	printf("      |_|\\__,_/_/\\_\\_____/_____/|_|  |_|\n\n\n" RESET);
 	printf("Username: ");
 	fgets(buf, LEN, stdin);
 	sscanf(buf, "%s", uname);
@@ -76,8 +82,8 @@ int main(int argc, char *argv[])
 		printf("      | |_   ___  _| (___| (___ | |__| |\n");
 		printf("      | | | | \\ \\/ /\\___  \\___ \\|  __  |\n");
 		printf("      | | |_| |>  < ____) |___) | |  | |\n");
-		printf("      |_|\\__,_/_/\\_\\_____/_____/|_|  |_|\n\n" RESET);
-		printf(GREEN "(1) SSH into machine\n(2) Upload files TO server\n(3) Download files FROM Server\n(4) Quit\n>>> " RESET);
+		printf("      |_|\\__,_/_/\\_\\_____/_____/|_|  |_|\n\n\n" RESET);
+		printf(GREEN "(1) SSH into machine\n(2) Upload files TO server\n(3) Download files FROM Server\n(4) About / License\n(5) Quit\n>>> " RESET);
 		fgets(buf, LEN, stdin);
 		sscanf(buf, "%d", &menuChoice);
 		if (menuChoice == 1) {
@@ -91,6 +97,9 @@ int main(int argc, char *argv[])
 			scpFrom(uname, hostname);
 		}
 		else if (menuChoice == 4) {
+			about();
+		}
+		else if (menuChoice == 5) {
 			system("clear");
 			free(uname);
 			free(hostname);
@@ -390,4 +399,30 @@ void scpTo(char *uname, char *hostname)
 		free(fileArr[i]);
 	free(fileArr);
 	printf("\n");
+}
+
+
+void about(void)
+{
+	char buf[100];
+	char exitCond;
+	while (1) {
+		system("clear");
+		printf(BLUE "    _______          _____ _____ _    _ \n");
+		printf("   |__   __|        / ____/ ____| |  | |\n");
+		printf("      | |_   ___  _| (___| (___ | |__| |\n");
+		printf("      | | | | \\ \\/ /\\___  \\___ \\|  __  |\n");
+		printf("      | | |_| |>  < ____) |___) | |  | |\n");
+		printf("      |_|\\__,_/_/\\_\\_____/_____/|_|  |_|\n\n\n" RESET);
+		printf("Developed and Created by Brendan Wilson (c) 2018\n");
+		printf("Managed as a FOSS program, maintained at https://github.com/bmw417/projects/tree/master/TuxSSH\n");
+		printf("Licensing and License Information at https://github.com/bmw417/projects/blob/master/TuxSSH/LICENSE.md\n\n");
+		printf("Contact me at brendan.wilson@student.nmt.edu for questions or comments\n\n");
+		printf("Enter anything to quit to menu: ");
+		fgets(buf, 100, stdin);
+		sscanf(buf, "%c", &exitCond);
+		if (exitCond != '\0')
+			system("clear");
+			break;
+	}
 }
