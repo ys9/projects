@@ -1,6 +1,6 @@
 ## TuxSSH
 
-TuxSSH is an all-in-one terminal based ssh utility written in C and Bash. 
+TuxSSH is an all-in-one terminal based ssh utility written in C and Bash that works in Linux and MacOS. 
 You can access the source code in the src folder, but the resulting
 program will not run right because of missing dependency files which are
 only in the .tar.gz archive. If you want to modify the code and run it, 
