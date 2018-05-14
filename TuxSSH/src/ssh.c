@@ -421,8 +421,9 @@ void about(void)
 		printf("Enter anything to quit to menu: ");
 		fgets(buf, 100, stdin);
 		sscanf(buf, "%c", &exitCond);
-		if (exitCond != '\0')
+		if (exitCond != '\0') {
 			system("clear");
 			break;
+		}
 	}
 }
