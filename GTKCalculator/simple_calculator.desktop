@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Simple Calculator
+Version=1.0
+Author=Brendan Wilson
+Comment=Calculator Written in GTK
+Exec=/usr/bin/simpleCalc
+Icon=/usr/share/pixmaps/calc.ico
+Terminal=false
+Type=Application
+StartupWMClass=simpleCalc
