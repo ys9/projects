@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <assert.h>
 #include <stdbool.h>
 #include <gtk/gtk.h>
+#define _XOPEN_SOURCE 600 //for powl() function
 
 
 GdkPixbuf *create_pixbuf(const gchar *filename);
@@ -31,13 +33,13 @@ int main(int argc, char *argv[])
     GdkPixbuf *icon;
     gtk_init(&argc, &argv);
     builder = gtk_builder_new();
-    gtk_builder_add_from_file (builder, "/etc/simpleCalculator/window_main.glade", NULL);
+    gtk_builder_add_from_file (builder, "window_main.glade", NULL);
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     resultLine = GTK_WIDGET(gtk_builder_get_object(builder, "resultLine"));
     gtk_window_set_title(GTK_WINDOW(window), "Calculator");
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_builder_connect_signals(builder, NULL);
-    icon = create_pixbuf("/usr/share/pixmaps/calc.ico");
+    icon = create_pixbuf("calc.ico");
     gtk_window_set_icon(GTK_WINDOW(window), icon);
 	g_object_unref(builder);
  
@@ -345,6 +347,22 @@ void on_divide_clicked(void)
 }
 
 
+void on_exp_clicked(void)
+{
+	if (expLen > 0 && equalsSet != true) {
+		if (operatorEnabled == false) {
+			expression[expLen] = ' ';
+			expression[expLen + 1] = '^';
+			expression[expLen + 2] = ' ';
+			expLen += 3;
+			operatorEnabled = true;
+			curNum = 2;
+			print_result();
+		}
+	}
+}
+
+
 void on_decimal_clicked(void)
 {
 	if (curNum == 1 && num1DecimalSet == false) {
@@ -408,10 +426,14 @@ void on_equals_clicked(void)
 			long sum = lside * rside;
 			sprintf(out, "%ld", sum);
 		}
+		else if (expression[num1Len + 1] == '^') {
+			long sum = powl(lside, rside);
+			sprintf(out, "%ld", sum);
+		}
 		else {
 			double sum = (float)lside / (float)rside;
 			sprintf(out, "%lf", sum);
-			for (int i = 8; i >= 0; i--) {
+			for (int i = 8; i >= 0; i--) { //truncate trailing zeros
 				if (out[i - 1] == '.')
 					break;
 				else {
@@ -438,11 +460,15 @@ void on_equals_clicked(void)
 			double sum = lside * rside;
 			sprintf(out, "%lf", sum);
 		}
+		else if (expression[num1Len + 1] == '^') {
+			double sum = pow(lside, rside);
+			sprintf(out, "%lf", sum);
+		}
 		else {
 			double sum = lside / rside;
 			sprintf(out, "%lf", sum);
 		}
-		for (int i = 8; i >= 0; i--) {
+		for (int i = 8; i >= 0; i--) { //truncate trailing zeros
 			if (out[i - 1] == '.')
 				break;
 			else {

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Simple Calculator
-Version=1.0
+Version=1.1
 Author=Brendan Wilson
 Comment=Calculator Written in GTK
 Exec=/usr/bin/simpleCalc

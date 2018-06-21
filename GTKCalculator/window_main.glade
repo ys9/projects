@@ -226,7 +226,7 @@
           <object class="GtkButton" id="equals">
             <property name="label" translatable="yes">=</property>
             <property name="width_request">76</property>
-            <property name="height_request">302</property>
+            <property name="height_request">221</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -234,7 +234,7 @@
           </object>
           <packing>
             <property name="x">412</property>
-            <property name="y">75</property>
+            <property name="y">156</property>
           </packing>
         </child>
         <child>
@@ -286,6 +286,21 @@
           <packing>
             <property name="x">222</property>
             <property name="y">319</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="exp">
+            <property name="label" translatable="yes">^</property>
+            <property name="width_request">76</property>
+            <property name="height_request">58</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_exp_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">412</property>
+            <property name="y">75</property>
           </packing>
         </child>
       </object>
